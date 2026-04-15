@@ -325,15 +325,15 @@ void sigchld_handler(int sig)
 /* ================= MAIN ================= */
 int main(int argc, char *argv[])
 {
-    if (argc < 2) {
-        printf("Usage:\n");
-        printf("  ./engine supervisor\n");
-        printf("  ./engine start <id> <rootfs> <program>\n");
-        printf("  ./engine ps\n");
-        printf("  ./engine stop <id>\n");
-        printf("  ./engine logs <id>\n");
-        return 0;
-    }
+   if (argc < 2) {
+    fprintf(stderr, "Usage:\n");
+    fprintf(stderr, "  ./engine supervisor\n");
+    fprintf(stderr, "  ./engine start <id> <rootfs> <program>\n");
+    fprintf(stderr, "  ./engine ps\n");
+    fprintf(stderr, "  ./engine stop <id>\n");
+    fprintf(stderr, "  ./engine logs <id>\n");
+    return 1;
+}
 
     if (strcmp(argv[1], "supervisor") == 0) {
         run_supervisor();
